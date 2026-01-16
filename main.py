@@ -2,14 +2,11 @@ from pathlib import Path
 import sys
 from datetime import datetime
 import json
-
 import logic
 
 DB_File = 'database.json'
 
 #command = sys.argv[1]
-
-
 def main():
     # if len(sys.argv) < 3:
     #     print('type a command')
