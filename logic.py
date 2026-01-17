@@ -33,6 +33,17 @@ def list_task():
                 status = task['status']  
                 print(f"[{id}] {desc} — ({status})")
 
+def list_marked(status):
+        tasks = storage.load_data()
+
+        if not tasks:
+                print("The list is empty")
+                return
+        
+        for task in tasks:
+                if task['status'] == status:
+                        print(f"[{task['id']}] {task['description']} — ({status})")
+
 def update_task(task_id, changes):
         if not changes:
                 print('Type updates')

@@ -21,11 +21,11 @@ def main():
         else:
             command2 = sys.argv[2]
             if command2 == 'done':
-                print('this should show done tasks')
+                logic.list_marked(sys.argv[2])
             if command2 == 'todo':
-                print('this should show task that should be done')
+                logic.list_marked(sys.argv[2])
             if command2 == 'in-progress':
-                print('these are tasks that are in progress')
+                logic.list_marked(sys.argv[2])
     command2 = sys.argv[2]
     if command == 'delete':
         print('this is delete command')
