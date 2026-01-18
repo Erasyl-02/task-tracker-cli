@@ -19,24 +19,20 @@ def main():
             return
         else:
             command2 = sys.argv[2]
-            if command2 == 'done':
-                logic.list_marked(sys.argv[2])
-            if command2 == 'todo':
-                logic.list_marked(sys.argv[2])
-            if command2 == 'in-progress':
-                logic.list_marked(sys.argv[2])
+            if command2 in ['done', 'todo', 'in-progress']:
+                logic.list_marked(command2)
     command2 = sys.argv[2]
     if command == 'delete':
-        logic.delete_task(sys.argv[2])
+        logic.delete_task(command2)
     if command == 'update':
         if len(sys.argv) < 4:
             print('You should type changes')
             return
-        logic.update_task(sys.argv[2], sys.argv[3])
+        logic.update_task(command2, sys.argv[3])
     if command == 'mark-in-progress':
-        logic.mark_task(sys.argv[2], 'in-progress')
+        logic.mark_task(command2, 'in-progress')
     if command == 'mark-done':
-        logic.mark_task(sys.argv[2], 'done')
+        logic.mark_task(command2, 'done')
 
 if __name__ == "__main__":
     main()

@@ -5,8 +5,9 @@ import storage
 
 def add_task(desc):
         tasks = storage.load_data()
+
         new_task = {
-        "id": len(tasks) + 1,
+        "id": max(task['id'] for task in tasks) + 1,
         "description": desc,
         "status": "todo",
         "createdAt": datetime.now().isoformat(),
@@ -51,6 +52,7 @@ def update_task(task_id, changes):
         for task in tasks:
                 if task['id'] == int(task_id):
                         task['description'] = changes
+                        task['updatedAt'] = datetime.now().isoformat()
                         storage.save_data(tasks)
                         print(f'Task with ID:{task_id} has been updated')
                         return
@@ -80,4 +82,4 @@ def delete_task(task_id):
                         print(f'Task with ID:{task_id} has deleted')
                         return
                 
-        print(f'Task with ID:{task_id} doesnt exist')        
+        print(f'Task with ID:{task_id} doesnt exist')     
