@@ -1,6 +1,3 @@
-import sys
-import json
-import pathlib
 from datetime import datetime
 
 import storage
@@ -72,3 +69,15 @@ def mark_task(task_id, change):
                         return
         
         print(f'Task with ID:{task_id} doesnt exist')
+
+def delete_task(task_id):
+        tasks = storage.load_data()
+
+        for task in tasks:
+                if task['id'] == int(task_id):
+                        tasks.remove(task)
+                        storage.save_data(tasks)
+                        print(f'Task with ID:{task_id} has deleted')
+                        return
+                
+        print(f'Task with ID:{task_id} doesnt exist')        

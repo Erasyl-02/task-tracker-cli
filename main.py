@@ -1,11 +1,10 @@
 from pathlib import Path
 import sys
 from datetime import datetime
-import json
+
 import logic
 
 
-#command = sys.argv[1]
 def main():
     if len(sys.argv) < 3 and sys.argv[1] != 'list':
          print('type a command')
@@ -28,7 +27,7 @@ def main():
                 logic.list_marked(sys.argv[2])
     command2 = sys.argv[2]
     if command == 'delete':
-        print('this is delete command')
+        logic.delete_task(sys.argv[2])
     if command == 'update':
         if len(sys.argv) < 4:
             print('You should type changes')

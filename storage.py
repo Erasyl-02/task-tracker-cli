@@ -1,5 +1,4 @@
 import json
-import pathlib
 
 DB_File = 'data.json'
 
